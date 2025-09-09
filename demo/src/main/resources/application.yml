@@ -1,0 +1,63 @@
+# ----------------------------------------------------
+# ✅ 모든 프로필에 적용될 공통 설정 (Common Settings)
+# ----------------------------------------------------
+spring:
+  application:
+    name: demo # ✅ 올바른 위치로 이동
+  profiles:
+    active: blue # 기본 활성 프로필
+    group:
+      local: local, common, secret
+      blue: blue, common, secret
+      green: green, common, secret
+
+# --- 문서 구분 ---
+---
+# ----------------------------------------------------
+# ✅ "local" 프로필 전용 설정
+# ----------------------------------------------------
+spring:
+  config:
+    activate:
+      on-profile: local
+
+server:
+  port: 8080
+  serverAddress: localhost # ✅ 표준 속성인 server.address 사용
+  env: local         # ✅ 프로필별로 명확하게 env 설정
+
+serverName: local_server
+
+# --- 문서 구분 ---
+---
+# ----------------------------------------------------
+# ✅ "blue" 프로필 전용 설정
+# ----------------------------------------------------
+spring:
+  config:
+    activate:
+      on-profile: blue
+
+server:
+  port: 8080
+  serverAddress: 13.124.239.6 # ✅ 표준 속성인 server.address 사용
+  env: blue          # ✅ 프로필별로 명확하게 env 설정
+
+serverName: blue_server
+
+# --- 문서 구분 ---
+---
+# ----------------------------------------------------
+# ✅ "green" 프로필 전용 설정
+# ----------------------------------------------------
+spring:
+  config:
+    activate:
+      on-profile: green
+
+server:
+  port: 8081
+  serverAddress: 13.124.239.6 # ✅ 표준 속성인 server.address 사용
+  env: green         # ✅ 프로필별로 명확하게 env 설정
+
+serverName: green_server
