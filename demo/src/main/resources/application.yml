@@ -7,9 +7,9 @@ spring:
   profiles:
     active: blue # 기본 활성 프로필
     group:
-      local: local, common, secret
-      blue: blue, common, secret
-      green: green, common, secret
+      local: local, common
+      blue: blue, common
+      green: green, common
 
 # --- 문서 구분 ---
 ---
